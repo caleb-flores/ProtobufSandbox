@@ -7,27 +7,25 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-/// <summary>Holder for reflection information generated from schemas/test.proto</summary>
 [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-public static partial class TestReflection {
+public static partial class Test {
 
   #region Descriptor
-  /// <summary>File descriptor for schemas/test.proto</summary>
   public static pbr::FileDescriptor Descriptor {
     get { return descriptor; }
   }
   private static pbr::FileDescriptor descriptor;
 
-  static TestReflection() {
+  static Test() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "ChJzY2hlbWFzL3Rlc3QucHJvdG8iRgoHUmVxdWVzdBINCgVxdWVyeRgBIAEo",
-          "CRITCgtwYWdlX251bWJlchgCIAEoBRIXCg9yZXN1bHRfcGVyX3BhZ2UYAyAB",
-          "KAViBnByb3RvMw=="));
-    descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
+          "ChJzY2hlbWFzL3Rlc3QucHJvdG8iYQoIUmVxdWVzdFgSDQoFcXVlcnkYASAB", 
+          "KAkSEwoLcGFnZV9udW1iZXIYAiABKAUSFwoPcmVzdWx0X3Blcl9wYWdlGAMg", 
+          "ASgFEhgKEHJlc3VsdF9wZXJfcGFnZTIYBCABKAViBnByb3RvMw=="));
+    descriptor = pbr::FileDescriptor.InternalBuildGeneratedFileFrom(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedCodeInfo(null, new pbr::GeneratedCodeInfo[] {
-          new pbr::GeneratedCodeInfo(typeof(global::Request), global::Request.Parser, new[]{ "Query", "PageNumber", "ResultPerPage" }, null, null, null)
+          new pbr::GeneratedCodeInfo(typeof(global::RequestX), new[]{ "Query", "PageNumber", "ResultPerPage", "ResultPerPage2" }, null, null, null)
         }));
   }
   #endregion
@@ -35,35 +33,35 @@ public static partial class TestReflection {
 }
 #region Messages
 [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-public sealed partial class Request : pb::IMessage<Request> {
-  private static readonly pb::MessageParser<Request> _parser = new pb::MessageParser<Request>(() => new Request());
-  public static pb::MessageParser<Request> Parser { get { return _parser; } }
+public sealed partial class RequestX : pb::IMessage<RequestX> {
+  private static readonly pb::MessageParser<RequestX> _parser = new pb::MessageParser<RequestX>(() => new RequestX());
+  public static pb::MessageParser<RequestX> Parser { get { return _parser; } }
 
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::TestReflection.Descriptor.MessageTypes[0]; }
+    get { return global::Test.Descriptor.MessageTypes[0]; }
   }
 
   pbr::MessageDescriptor pb::IMessage.Descriptor {
     get { return Descriptor; }
   }
 
-  public Request() {
+  public RequestX() {
     OnConstruction();
   }
 
   partial void OnConstruction();
 
-  public Request(Request other) : this() {
+  public RequestX(RequestX other) : this() {
     query_ = other.query_;
     pageNumber_ = other.pageNumber_;
     resultPerPage_ = other.resultPerPage_;
+    resultPerPage2_ = other.resultPerPage2_;
   }
 
-  public Request Clone() {
-    return new Request(this);
+  public RequestX Clone() {
+    return new RequestX(this);
   }
 
-  /// <summary>Field number for the "query" field.</summary>
   public const int QueryFieldNumber = 1;
   private string query_ = "";
   public string Query {
@@ -73,7 +71,6 @@ public sealed partial class Request : pb::IMessage<Request> {
     }
   }
 
-  /// <summary>Field number for the "page_number" field.</summary>
   public const int PageNumberFieldNumber = 2;
   private int pageNumber_;
   public int PageNumber {
@@ -83,7 +80,6 @@ public sealed partial class Request : pb::IMessage<Request> {
     }
   }
 
-  /// <summary>Field number for the "result_per_page" field.</summary>
   public const int ResultPerPageFieldNumber = 3;
   private int resultPerPage_;
   public int ResultPerPage {
@@ -93,11 +89,20 @@ public sealed partial class Request : pb::IMessage<Request> {
     }
   }
 
-  public override bool Equals(object other) {
-    return Equals(other as Request);
+  public const int ResultPerPage2FieldNumber = 4;
+  private int resultPerPage2_;
+  public int ResultPerPage2 {
+    get { return resultPerPage2_; }
+    set {
+      resultPerPage2_ = value;
+    }
   }
 
-  public bool Equals(Request other) {
+  public override bool Equals(object other) {
+    return Equals(other as RequestX);
+  }
+
+  public bool Equals(RequestX other) {
     if (ReferenceEquals(other, null)) {
       return false;
     }
@@ -107,6 +112,7 @@ public sealed partial class Request : pb::IMessage<Request> {
     if (Query != other.Query) return false;
     if (PageNumber != other.PageNumber) return false;
     if (ResultPerPage != other.ResultPerPage) return false;
+    if (ResultPerPage2 != other.ResultPerPage2) return false;
     return true;
   }
 
@@ -115,6 +121,7 @@ public sealed partial class Request : pb::IMessage<Request> {
     if (Query.Length != 0) hash ^= Query.GetHashCode();
     if (PageNumber != 0) hash ^= PageNumber.GetHashCode();
     if (ResultPerPage != 0) hash ^= ResultPerPage.GetHashCode();
+    if (ResultPerPage2 != 0) hash ^= ResultPerPage2.GetHashCode();
     return hash;
   }
 
@@ -135,6 +142,10 @@ public sealed partial class Request : pb::IMessage<Request> {
       output.WriteRawTag(24);
       output.WriteInt32(ResultPerPage);
     }
+    if (ResultPerPage2 != 0) {
+      output.WriteRawTag(32);
+      output.WriteInt32(ResultPerPage2);
+    }
   }
 
   public int CalculateSize() {
@@ -148,10 +159,13 @@ public sealed partial class Request : pb::IMessage<Request> {
     if (ResultPerPage != 0) {
       size += 1 + pb::CodedOutputStream.ComputeInt32Size(ResultPerPage);
     }
+    if (ResultPerPage2 != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(ResultPerPage2);
+    }
     return size;
   }
 
-  public void MergeFrom(Request other) {
+  public void MergeFrom(RequestX other) {
     if (other == null) {
       return;
     }
@@ -163,6 +177,9 @@ public sealed partial class Request : pb::IMessage<Request> {
     }
     if (other.ResultPerPage != 0) {
       ResultPerPage = other.ResultPerPage;
+    }
+    if (other.ResultPerPage2 != 0) {
+      ResultPerPage2 = other.ResultPerPage2;
     }
   }
 
@@ -183,6 +200,10 @@ public sealed partial class Request : pb::IMessage<Request> {
         }
         case 24: {
           ResultPerPage = input.ReadInt32();
+          break;
+        }
+        case 32: {
+          ResultPerPage2 = input.ReadInt32();
           break;
         }
       }

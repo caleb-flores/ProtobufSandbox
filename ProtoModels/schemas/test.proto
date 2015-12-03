@@ -1,7 +1,8 @@
 syntax = "proto3";
 
-message Request {
+message RequestX {
   string query = 1;
   int32 page_number = 2;
   int32 result_per_page = 3;
+  int32 result_per_page2 = 4;
 }

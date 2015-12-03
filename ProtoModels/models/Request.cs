@@ -7,28 +7,26 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-/// <summary>Holder for reflection information generated from schemas/request.proto</summary>
 [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-public static partial class RequestReflection {
+public static partial class Request {
 
   #region Descriptor
-  /// <summary>File descriptor for schemas/request.proto</summary>
   public static pbr::FileDescriptor Descriptor {
     get { return descriptor; }
   }
   private static pbr::FileDescriptor descriptor;
 
-  static RequestReflection() {
+  static Request() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "ChVzY2hlbWFzL3JlcXVlc3QucHJvdG8iegoNU2VhcmNoUmVxdWVzdBINCgVx",
-          "dWVyeRgBIAEoCRITCgtwYWdlX251bWJlchgCIAEoBRIXCg9yZXN1bHRfcGVy",
-          "X3BhZ2UYAyABKAUSDAoEbmFtZRgEIAEoCRIRCglsYXN0X25hbWUYBSABKAkS",
-          "CwoDYWdlGAogASgFYgZwcm90bzM="));
-    descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
+          "ChVzY2hlbWFzL3JlcXVlc3QucHJvdG8iiQEKDVNlYXJjaFJlcXVlc3QSDQoF", 
+          "cXVlcnkYASABKAkSEwoLcGFnZV9udW1iZXIYAiABKAUSFwoPcmVzdWx0X3Bl", 
+          "cl9wYWdlGAMgASgFEgwKBG5hbWUYBCABKAkSEQoJbGFzdF9uYW1lGAUgASgJ", 
+          "EgsKA2FnZRgKIAEoBRINCgVvdGhlchgPIAEoBWIGcHJvdG8z"));
+    descriptor = pbr::FileDescriptor.InternalBuildGeneratedFileFrom(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedCodeInfo(null, new pbr::GeneratedCodeInfo[] {
-          new pbr::GeneratedCodeInfo(typeof(global::SearchRequest), global::SearchRequest.Parser, new[]{ "Query", "PageNumber", "ResultPerPage", "Name", "LastName", "Age" }, null, null, null)
+          new pbr::GeneratedCodeInfo(typeof(global::SearchRequest), new[]{ "Query", "PageNumber", "ResultPerPage", "Name", "LastName", "Age", "Other" }, null, null, null)
         }));
   }
   #endregion
@@ -41,7 +39,7 @@ public sealed partial class SearchRequest : pb::IMessage<SearchRequest> {
   public static pb::MessageParser<SearchRequest> Parser { get { return _parser; } }
 
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::RequestReflection.Descriptor.MessageTypes[0]; }
+    get { return global::Request.Descriptor.MessageTypes[0]; }
   }
 
   pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -61,13 +59,13 @@ public sealed partial class SearchRequest : pb::IMessage<SearchRequest> {
     name_ = other.name_;
     lastName_ = other.lastName_;
     age_ = other.age_;
+    other_ = other.other_;
   }
 
   public SearchRequest Clone() {
     return new SearchRequest(this);
   }
 
-  /// <summary>Field number for the "query" field.</summary>
   public const int QueryFieldNumber = 1;
   private string query_ = "";
   public string Query {
@@ -77,7 +75,6 @@ public sealed partial class SearchRequest : pb::IMessage<SearchRequest> {
     }
   }
 
-  /// <summary>Field number for the "page_number" field.</summary>
   public const int PageNumberFieldNumber = 2;
   private int pageNumber_;
   public int PageNumber {
@@ -87,7 +84,6 @@ public sealed partial class SearchRequest : pb::IMessage<SearchRequest> {
     }
   }
 
-  /// <summary>Field number for the "result_per_page" field.</summary>
   public const int ResultPerPageFieldNumber = 3;
   private int resultPerPage_;
   public int ResultPerPage {
@@ -97,7 +93,6 @@ public sealed partial class SearchRequest : pb::IMessage<SearchRequest> {
     }
   }
 
-  /// <summary>Field number for the "name" field.</summary>
   public const int NameFieldNumber = 4;
   private string name_ = "";
   public string Name {
@@ -107,7 +102,6 @@ public sealed partial class SearchRequest : pb::IMessage<SearchRequest> {
     }
   }
 
-  /// <summary>Field number for the "last_name" field.</summary>
   public const int LastNameFieldNumber = 5;
   private string lastName_ = "";
   public string LastName {
@@ -117,13 +111,21 @@ public sealed partial class SearchRequest : pb::IMessage<SearchRequest> {
     }
   }
 
-  /// <summary>Field number for the "age" field.</summary>
   public const int AgeFieldNumber = 10;
   private int age_;
   public int Age {
     get { return age_; }
     set {
       age_ = value;
+    }
+  }
+
+  public const int OtherFieldNumber = 15;
+  private int other_;
+  public int Other {
+    get { return other_; }
+    set {
+      other_ = value;
     }
   }
 
@@ -144,6 +146,7 @@ public sealed partial class SearchRequest : pb::IMessage<SearchRequest> {
     if (Name != other.Name) return false;
     if (LastName != other.LastName) return false;
     if (Age != other.Age) return false;
+    if (Other != other.Other) return false;
     return true;
   }
 
@@ -155,6 +158,7 @@ public sealed partial class SearchRequest : pb::IMessage<SearchRequest> {
     if (Name.Length != 0) hash ^= Name.GetHashCode();
     if (LastName.Length != 0) hash ^= LastName.GetHashCode();
     if (Age != 0) hash ^= Age.GetHashCode();
+    if (Other != 0) hash ^= Other.GetHashCode();
     return hash;
   }
 
@@ -187,6 +191,10 @@ public sealed partial class SearchRequest : pb::IMessage<SearchRequest> {
       output.WriteRawTag(80);
       output.WriteInt32(Age);
     }
+    if (Other != 0) {
+      output.WriteRawTag(120);
+      output.WriteInt32(Other);
+    }
   }
 
   public int CalculateSize() {
@@ -208,6 +216,9 @@ public sealed partial class SearchRequest : pb::IMessage<SearchRequest> {
     }
     if (Age != 0) {
       size += 1 + pb::CodedOutputStream.ComputeInt32Size(Age);
+    }
+    if (Other != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(Other);
     }
     return size;
   }
@@ -233,6 +244,9 @@ public sealed partial class SearchRequest : pb::IMessage<SearchRequest> {
     }
     if (other.Age != 0) {
       Age = other.Age;
+    }
+    if (other.Other != 0) {
+      Other = other.Other;
     }
   }
 
@@ -265,6 +279,10 @@ public sealed partial class SearchRequest : pb::IMessage<SearchRequest> {
         }
         case 80: {
           Age = input.ReadInt32();
+          break;
+        }
+        case 120: {
+          Other = input.ReadInt32();
           break;
         }
       }

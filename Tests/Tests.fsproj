@@ -7,6 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Tests</RootNamespace>
     <AssemblyName>Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -144,4 +145,10 @@
       </ItemGroup>
     </When>
   </Choose>
+  <ItemGroup>
+    <ProjectReference Include="..\ProtoModels\ProtoModels.csproj">
+      <Project>{672A1EB8-4BC6-410A-BE7E-6251A0DB7AD6}</Project>
+      <Name>ProtoModels</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

@@ -7,4 +7,5 @@ message SearchRequest {
   string name = 4;
   string last_name = 5;
   int32 age = 10;
+  int32 other =15;
 }
