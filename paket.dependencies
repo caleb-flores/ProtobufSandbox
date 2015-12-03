@@ -1,4 +1,6 @@
 source https://nuget.org/api/v2
+nuget Fake
 nuget FSharp.Core
+nuget FSharp.Data
 nuget Google.Protobuf
 nuget Nunit

@@ -31,6 +31,12 @@
     <Compile Include="Script.fsx" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.1\Framework\v4.0\Microsoft.FSharp.Targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\ProtoModels\ProtoModels.csproj">
+      <Project>{672A1EB8-4BC6-410A-BE7E-6251A0DB7AD6}</Project>
+      <Name>ProtoModels</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v2.0' Or $(TargetFrameworkVersion) == 'v3.0' Or $(TargetFrameworkVersion) == 'v3.5')">
       <ItemGroup>
@@ -145,10 +151,4 @@
       </ItemGroup>
     </When>
   </Choose>
-  <ItemGroup>
-    <ProjectReference Include="..\ProtoModels\ProtoModels.csproj">
-      <Project>{672A1EB8-4BC6-410A-BE7E-6251A0DB7AD6}</Project>
-      <Name>ProtoModels</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
